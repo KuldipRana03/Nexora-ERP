@@ -11,7 +11,6 @@ export const AdminLayout = () => {
   const canCreateCustomers = ['Admin', 'Sales'].includes(user?.role);
   const canCreateProducts = ['Admin', 'Warehouse'].includes(user?.role);
   const canCreateChallans = ['Admin', 'Sales'].includes(user?.role);
-  const canManageStock = ['Admin', 'Warehouse'].includes(user?.role);
 
   return (
     <div className="flex h-screen bg-gray-50 font-sans text-gray-900">
@@ -58,11 +57,6 @@ export const AdminLayout = () => {
           {canCreateProducts && (
             <Link to="/products/new" className={`flex items-center space-x-3 px-3 py-2 rounded-md transition ${isActive('/products/new')}`}>
               <PlusCircle size={18} /> <span>Add Product</span>
-            </Link>
-          )}
-          {canManageStock && (
-            <Link to="/products/stock-movement" className={`flex items-center space-x-3 px-3 py-2 rounded-md transition ${isActive('/products/stock-movement')}`}>
-              <Activity size={18} /> <span>Stock Movements</span>
             </Link>
           )}
 

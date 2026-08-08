@@ -41,9 +41,9 @@ export const ChallanDetail = () => {
     setError('');
     
     try {
-      await apiFetch(`/challans/${id}/status`, {
-        method: 'PUT',
-        body: JSON.stringify({ status })
+      const endpointAction = status === 'Confirmed' ? 'confirm' : 'cancel';
+      await apiFetch(`/challans/${id}/${endpointAction}`, {
+        method: 'PATCH'
       });
       fetchChallan(); // Refresh data
     } catch (err) {

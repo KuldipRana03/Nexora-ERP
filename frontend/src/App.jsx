@@ -7,6 +7,9 @@ import { Dashboard } from './pages/Dashboard';
 import { CustomersList } from './pages/CustomersList';
 import { CustomerForm } from './pages/CustomerForm';
 import { CustomerDetail } from './pages/CustomerDetail';
+import { ProductsList } from './pages/ProductsList';
+import { ProductForm } from './pages/ProductForm';
+import { StockMovementForm } from './pages/StockMovementForm';
 
 function App() {
   return (
@@ -42,20 +45,29 @@ function App() {
             />
             <Route path="customers/:id" element={<CustomerDetail />} />
             
-            <Route path="products" element={<div className="p-4">Products List (All Roles)</div>} />
+            {/* Products Module */}
+            <Route path="products" element={<ProductsList />} />
             <Route 
               path="products/new" 
               element={
                 <ProtectedRoute allowedRoles={['Admin', 'Warehouse']}>
-                  <div className="p-4">Add Product Form (Admin, Warehouse)</div>
+                  <ProductForm />
                 </ProtectedRoute>
               } 
             />
             <Route 
-              path="products/stock-movement" 
+              path="products/:id/edit" 
               element={
                 <ProtectedRoute allowedRoles={['Admin', 'Warehouse']}>
-                  <div className="p-4">Stock Movement (Admin, Warehouse)</div>
+                  <ProductForm />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="products/:id/stock" 
+              element={
+                <ProtectedRoute allowedRoles={['Admin', 'Warehouse']}>
+                  <StockMovementForm />
                 </ProtectedRoute>
               } 
             />

@@ -63,6 +63,22 @@ JWT_SECRET=your_super_secret_key
    ```
    The backend API will run on `http://localhost:5000`.
 
+### Frontend (React/Vite)
+1. **Navigate to the frontend directory:**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. **Configure Environment:**
+   No .env file is strictly required if the backend is running on `http://localhost:5000`, as Vite is configured to proxy API requests in development mode, or falls back to it.
+
+3. **Start the Frontend Development Server:**
+   ```bash
+   npm run dev
+   ```
+   The frontend will be available at `http://localhost:5173`.
+
 ## 🌐 How to Deploy the Project
 
 ### Database (e.g., Supabase, Neon, or Aiven for MySQL)
@@ -78,9 +94,9 @@ JWT_SECRET=your_super_secret_key
 
 ### Frontend (e.g., Vercel, Netlify)
 1. Connect the repository.
-2. Set the framework preset to React (Vite).
+2. Set the framework preset to React (Vite) and root directory to `frontend`.
 3. Set the build command to `npm run build` and output directory to `dist`.
-4. Add the `VITE_API_URL` environment variable pointing to your deployed Backend API.
+4. Ensure your deployed backend API URL is accessible and update any necessary CORS configurations.
 
 ## 🔑 Test Login Credentials
 
@@ -100,7 +116,6 @@ Use the following credentials to test role-based access. All passwords are `pass
 - JWT tokens do not have a robust revocation strategy (like a Redis blacklist) in this lightweight version; they just expire automatically based on time.
 
 ## ⚠️ Known Limitations or Incomplete Parts
-- **Frontend Missing:** The React UI frontend is currently not built; the codebase primarily contains the fully robust backend APIs.
 - **Email Notifications:** The system does not currently send actual emails for follow-ups or alerts; it relies entirely on API data.
 - **Export to PDF (Bonus):** Challans/Invoices cannot currently be exported directly to PDF.
 - **S3 Uploads (Bonus):** Product images are not supported yet; only text data is stored.

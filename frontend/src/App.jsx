@@ -4,6 +4,9 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { AdminLayout } from './components/AdminLayout';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
+import { CustomersList } from './pages/CustomersList';
+import { CustomerForm } from './pages/CustomerForm';
+import { CustomerDetail } from './pages/CustomerDetail';
 
 function App() {
   return (
@@ -19,16 +22,25 @@ function App() {
           }>
             <Route index element={<Dashboard />} />
             
-            {/* Dummy routes for Verification Checkpoint */}
-            <Route path="customers" element={<div className="p-4">Customers List (All Roles)</div>} />
+            {/* Customers Module */}
+            <Route path="customers" element={<CustomersList />} />
             <Route 
               path="customers/new" 
               element={
                 <ProtectedRoute allowedRoles={['Admin', 'Sales']}>
-                  <div className="p-4">Add Customer Form (Admin, Sales)</div>
+                  <CustomerForm />
                 </ProtectedRoute>
               } 
             />
+            <Route 
+              path="customers/:id/edit" 
+              element={
+                <ProtectedRoute allowedRoles={['Admin', 'Sales']}>
+                  <CustomerForm />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="customers/:id" element={<CustomerDetail />} />
             
             <Route path="products" element={<div className="p-4">Products List (All Roles)</div>} />
             <Route 

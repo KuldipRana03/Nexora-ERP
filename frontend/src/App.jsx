@@ -10,6 +10,9 @@ import { CustomerDetail } from './pages/CustomerDetail';
 import { ProductsList } from './pages/ProductsList';
 import { ProductForm } from './pages/ProductForm';
 import { StockMovementForm } from './pages/StockMovementForm';
+import { ChallansList } from './pages/ChallansList';
+import { ChallanForm } from './pages/ChallanForm';
+import { ChallanDetail } from './pages/ChallanDetail';
 
 function App() {
   return (
@@ -72,15 +75,17 @@ function App() {
               } 
             />
             
-            <Route path="challans" element={<div className="p-4">Challans List (All Roles)</div>} />
+            {/* Challans Module */}
+            <Route path="challans" element={<ChallansList />} />
             <Route 
               path="challans/new" 
               element={
                 <ProtectedRoute allowedRoles={['Admin', 'Sales']}>
-                  <div className="p-4">Create Challan Form (Admin, Sales)</div>
+                  <ChallanForm />
                 </ProtectedRoute>
               } 
             />
+            <Route path="challans/:id" element={<ChallanDetail />} />
             
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

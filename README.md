@@ -2,6 +2,38 @@
 
 This project is a small ERP/CRM system designed for a wholesale/distribution company. It manages customers, products, stock, sales challans, and basic CRM follow-ups, with role-based access control.
 
+## 📋 Case Study Submission Requirements
+
+**1. GitHub Repository Link**
+[https://github.com/KuldipRana03/Nexora-ERP.git](https://github.com/KuldipRana03/Nexora-ERP.git)
+
+**2. Live Frontend URL**
+[http://18.212.85.217:5173](http://18.212.85.217:5173)
+
+**3. Live Backend API URL**
+[http://18.212.85.217:5000](http://18.212.85.217:5000)
+
+**4. Test Login Credentials for All Roles**
+All roles use the password: `password123`
+- **Admin:** `admin@example.com`
+- **Sales:** `sales@example.com`
+- **Warehouse:** `warehouse@example.com`
+- **Accounts:** `accounts@example.com`
+
+**5. Postman Collection or API Documentation**
+The Postman collection is included directly inside the repository under the `postman` directory.
+
+**6. README with Setup and Deployment Instructions**
+*See sections below (`How the Server was Set Up`, `Run with Docker`, `How to Run the Project Locally`, `How to Deploy the Project`).*
+
+**7. Short Explanation of Architecture**
+*See the `Architecture Overview` section below.*
+
+**8. Known Limitations or Incomplete Parts**
+*See the `Known Limitations or Incomplete Parts` section below.*
+
+---
+
 ## 🏗️ Architecture Overview
 
 The system follows a standard Client-Server architecture utilizing a RESTful API.

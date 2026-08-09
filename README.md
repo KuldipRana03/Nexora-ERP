@@ -35,7 +35,23 @@ DB_NAME=your_database_name
 JWT_SECRET=your_super_secret_key
 ```
 
-## 🚀 How to Run the Project Locally
+## 🐳 Run with Docker (Recommended)
+
+This is an alternative to the manual local setup documented below. It will containerize the full stack (backend, frontend, MySQL) so the entire project can be started with a single command.
+
+1. Ensure you have Docker and Docker Compose installed.
+2. Copy the `.env.example` file in the root directory to `.env` (this is specific to docker-compose and differs from the backend/frontend `.env.example` files).
+3. Run the following command from the project root:
+   ```bash
+   docker-compose up --build
+   ```
+4. Once the containers are running, you need to seed the database with test data and role users. Run this command once in a separate terminal:
+   ```bash
+   docker-compose exec backend node seed.js
+   ```
+5. The frontend will be available at `http://localhost:5173` and the backend at `http://localhost:5000`.
+
+## 🚀 How to Run the Project Locally (Manual Setup)
 
 1. **Clone the repository:**
    ```bash

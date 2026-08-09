@@ -1,0 +1,6 @@
+node_modules/
+.env
+.postman/
+postman/
+implementation_plan.md
+role_permissions.md
